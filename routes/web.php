@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +12,10 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', function () {
+    return ['Laravel' => app()->version()];
+});
 
 $users = [
     [
@@ -53,21 +56,3 @@ Route::get('/home', function () {
 });
 
 
-
-    Route::get('/users', function () {
-        $users = [
-            [
-                'id' => 1,
-                'name' => 'John Doe',
-                'email' => 'john@example.com',
-            ],
-            [
-                'id' => 2,
-                'name' => 'Jane Smith',
-                'email' => 'jane@example.com',
-            ],
-            // Add more dummy user data as needed
-        ];
-    
-        return response()->json($users);
-    });
