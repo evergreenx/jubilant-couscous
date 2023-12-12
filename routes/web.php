@@ -17,42 +17,12 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
-$users = [
-    [
-        'id' => 1,
-        'name' => 'John Doe',
-        'email' => 'john@example.com',
-    ],
-    [
-        'id' => 2,
-        'name' => 'Jane Smith',
-        'email' => 'jane@example.com',
-    ],
-    // Add more dummy user data as needed
-];
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
 
 
-    $users = [
-        [
-            'id' => 1,
-            'name' => 'John Doe',
-            'email' => 'john@example.com',
-        ],
-        [
-            'id' => 2,
-            'name' => 'Jane Smith',
-            'email' => 'jane@example.com',
-        ],
-        // Add more dummy user data as needed
-    ];
-    return response($users, 200)
-        ->header('Content-Type', 'text/json');
-});
-
-
+require __DIR__.'/auth.php';
